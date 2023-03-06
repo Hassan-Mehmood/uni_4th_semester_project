@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap');
+
+:root {
+  --red: #db2a2c;
+  --white: #fff;
+  --roboto: 'Roboto', sans-serif;
+}
+/* Resetting the default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Utility styles */
+.max_width {
+  /* max-width: 80rem; 1280px */
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: var(--red);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background 0.5s ease;
+}
+
+nav.bg-black {
+  background-color: #000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo .logo_img {
+  display: block;
+  max-width: 100%;
+  width: 3.25rem; /*52px*/
+  height: 3.25rem;
+  margin: 0 10px 0 0;
+}
+
+.logo h1 {
+  color: var(--white);
+}
+
+.nav_links {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.nav_links li {
+  margin: 0 1rem;
+}
+
+.nav_links li a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+@media screen and (min-width: 480px) {
+  nav .nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    margin-bottom: 0;
+  }
+}
+
+.main_image_container img {
+  display: block;
+  width: 100%;
+  max-width: 25.125rem; /*482px*/
+  margin: 0 auto;
+}
+
+.main {
+  padding: 4rem 0 0 0;
+  margin-top: 84px;
+}
+
+.main_text .welcome {
+  color: var(--red);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.main_text {
+  margin-bottom: 1.5rem;
+}
+
+.main_text .main_heading {
+  font-family: var(--roboto);
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.main_text p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (min-width: 30.125em) {
+  .main_text .main_heading {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 670px) {
+  .main_text p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .main_text {
+    flex: 1;
+  }
+  .main_img {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .main_text .main_heading {
+    font-size: 3.5rem;
+  }
+  .main_text .welcome {
+    font-size: 2rem;
+  }
+}
