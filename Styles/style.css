@@ -3,6 +3,7 @@
 :root {
   --red: #db2a2c;
   --white: #fff;
+  --green: #8bb457;
   --roboto: 'Roboto', sans-serif;
 }
 /* Resetting the default margins and paddings */
@@ -227,5 +228,72 @@ nav.bg-black {
   }
   .order_and_delivery_section .title {
     font-size: 2rem;
+  }
+}
+
+.menu_section {
+  padding: 3rem 0 0 0;
+}
+.menu_section .menu_welcome,
+.menu_section .menu_heading {
+  text-align: center;
+  font-family: var(--roboto);
+}
+
+.menu_section .menu_welcome {
+  color: var(--green);
+  font-size: 1.5rem;
+}
+
+.menu_section .menu_heading {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.menu_item .menu_item_img {
+  width: 150px;
+}
+
+.menu_item .menu_item_img img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.menu_item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2.5rem 0;
+}
+
+.menu_item .menu_item_text .menu_item_name {
+  display: inline-block;
+  font-size: 1.21rem;
+  font-family: var(--roboto);
+  font-weight: 900;
+  margin: 0 2rem 0.5rem 0;
+}
+.menu_item .menu_item_text .menu_item_price {
+  font-family: var(--roboto);
+  font-weight: 900;
+  font-size: 1.21rem;
+  color: var(--green);
+}
+
+.menu_item .menu_item_text .menu_item_detail {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 800px) {
+  .menu_items {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu_item {
+    margin: 1rem 0;
   }
 }
