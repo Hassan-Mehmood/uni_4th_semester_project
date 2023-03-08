@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/bff4fbee23.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Styles/style.css" />
-    <title>Restraunt Management System</title>
-  </head>
-  <body>
-    <nav class="nav">
-      <div class="max_width nav_container">
-        <div class="logo">
-          <img src="./Images/logo.png" alt="Logo" class="logo_img" />
-          <h1>Dinery</h1>
-        </div>
-        <ul class="nav_links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Menu</a></li>
-        </ul>
-      </div>
-    </nav>
+<?php require 'header.php'  ?>
 
-    <main class="max_width main">
+    <main class="max_width main" id="home">
       <section class="main_text">
         <h3 class="welcome">Welcome</h3>
         <h3 class="main_heading">We make the best burger in town</h3>
@@ -62,7 +39,7 @@
       </div>
     </section>
 
-    <section class="menu_section max_width" style="margin-bottom: 1500px">
+    <section class="menu_section max_width" id="menu">
       <h3 class="menu_welcome">Welcome</h3>
       <h2 class="menu_heading">Our Menu</h2>
 
@@ -214,6 +191,4 @@
       </div>
     </section>
 
-    <script src="./Script/app.js"></script>
-  </body>
-</html>
+<?php require 'footer.php' ?>
