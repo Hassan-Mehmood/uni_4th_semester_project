@@ -18,7 +18,7 @@
         <ul class="nav_links">
           <li><a href="index.php">Home</a></li>
           <li><a href="admin.php">Admin</a></li>
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="menu.php">Menu</a></li>
         </ul>
       </div>
     </nav>

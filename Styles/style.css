@@ -320,7 +320,7 @@ input[type='password'] {
 }
 
 /* Set a style for all buttons */
-button {
+.login_form_button {
   background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
@@ -330,17 +330,12 @@ button {
   width: 100%;
 }
 
-button:hover {
+.login_form_button:hover {
   opacity: 0.8;
 }
 
 .container {
   padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
 }
 
 .modal-content {
