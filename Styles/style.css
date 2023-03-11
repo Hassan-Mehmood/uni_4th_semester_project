@@ -344,7 +344,7 @@ input[type='password'] {
 }
 
 .about_us {
-  padding: 4rem 0 0 0;
+  padding: 8rem 0 4rem 0;
 }
 
 .about_us .about_us_heading {
@@ -367,9 +367,13 @@ input[type='password'] {
 
 .restaurant_info {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   margin: 4rem 0 0 0;
   text-align: center;
+}
+
+.restaurant_info .restaurant_open_time {
+  margin: 3rem 0;
 }
 
 .restaurant_info img {
@@ -386,4 +390,45 @@ input[type='password'] {
 
 .restaurant_info h4 {
   margin: 0.5rem 0 1.5rem 0;
+}
+
+@media screen and (min-width: 732px) {
+  .restaurant_info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .restaurant_info .restaurant_open_time {
+    margin: 0;
+  }
+}
+
+.footer {
+  border-top: 1px solid black;
+  margin: 3rem 0 0 0;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footer_container .footer_links {
+  display: flex;
+  align-items: center;
+}
+
+.footer_container .footer_links {
+  list-style-type: none;
+}
+
+.footer_container a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 1rem 0 0;
+}
+
+.footer_container a:hover {
+  border-bottom: 1px solid black;
 }

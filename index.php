@@ -39,7 +39,7 @@
   </div>
 </section>
 
-<section class="about_us max_width" id="about_us" style="margin-bottom: 80rem;">
+<section class="about_us max_width" id="about_us">
   <div>
     <h3 class="about_us_heading">More About us</h3>
     <p class="about_us_text">
