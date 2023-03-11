@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
 
 ?>
 
-
+<h1 style="margin-top: 10rem;">Hello WOrld</h1>
 
 
 <?php require 'footer.php' ?>

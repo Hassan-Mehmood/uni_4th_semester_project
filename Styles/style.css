@@ -342,3 +342,48 @@ input[type='password'] {
   background-color: #fefefe;
   border: 1px solid #888;
 }
+
+.about_us {
+  padding: 4rem 0 0 0;
+}
+
+.about_us .about_us_heading {
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: var(--roboto);
+  font-weight: 900;
+  color: var(--red);
+  margin: 0rem 0 2rem 0;
+}
+
+.about_us .about_us_text {
+  text-align: center;
+  font-size: 1.15rem;
+  color: rgba(0, 0, 0, 0.8);
+  max-width: 70ch;
+  margin: 0 auto;
+  line-height: 2rem;
+}
+
+.restaurant_info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 4rem 0 0 0;
+  text-align: center;
+}
+
+.restaurant_info img {
+  display: block;
+  max-width: 100%;
+  width: 24px;
+  margin: 0 auto;
+}
+
+.restaurant_info span {
+  display: block;
+  margin: 0.45rem 0;
+}
+
+.restaurant_info h4 {
+  margin: 0.5rem 0 1.5rem 0;
+}
