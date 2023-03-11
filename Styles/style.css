@@ -94,7 +94,7 @@ nav.bg-black {
 }
 
 .main {
-  padding: 4rem 0 0 0;
+  padding: 6rem 0 4rem 0;
   margin-top: 84px;
 }
 
@@ -303,14 +303,19 @@ nav.bg-black {
 
 /* Login page */
 
-.login_form {
-  margin-top: 8rem;
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
+  max-width: 50%;
+  height: calc(100vh - 131px);
+  min-height: 43.75rem; /*700px*/
 }
 
 /* Full-width input fields */
-input[type='text'],
-input[type='password'] {
+.username,
+.password {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
