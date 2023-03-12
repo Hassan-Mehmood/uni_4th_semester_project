@@ -1,12 +1,12 @@
 <?php require 'header.php';
 
 // Checking if the admin is logged in
-// if (isset($_SESSION['user'])) {
-//   print "session exists";
-// } else {
-//   // If adming is not loggedin redirect to the login page
-//   header("Location: http://localhost/Restaurant%20management%20system/login.php");
-// }
+if (isset($_SESSION['user'])) {
+  print "session exists";
+} else {
+  // If adming is not loggedin redirect to the login page
+  header("Location: http://localhost/Restraunt%20management%20system/login.php");
+}
 
 ?>
 
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div>
-            <button>Edit</button>
+            <button id="edit_item_btn">Edit</button>
             <button>Delete</button>
           </div>
         </div>
@@ -43,8 +43,9 @@
   <section class="add_menu_item hidden">
     <form class="modal-content" action="" method="post">
       <div class="container">
-        <div class="close_icon">
-          <img src="./Images/close.png" alt="Close" class="close_icon_img">
+        <div class="menu_header">
+          <h3>Add Item</h3>
+          <img src="./Images/close.png" alt="Close" class="add_close_icon_img">
         </div>
         <label for="item_name"><b>Item Name</b></label>
         <input type="text" name="item_name" class="item_name" id="item_name" required>
@@ -64,6 +65,33 @@
       </div>
     </form>
   </section>
+
+  <section class="edit_menu_item hidden">
+    <form class="modal-content" method="post">
+      <div class="container">
+        <div class="menu_header">
+          <h3>Edit Item</h3>
+          <img src="./Images/close.png" alt="Close" class="edit_close_icon_img">
+        </div>
+        <label for="item_name"><b>Item Name</b></label>
+        <input type="text" name="item_name" class="item_name" id="item_name" required>
+
+        <label for="item_price"><b>Price</b></label>
+        <input type="price" name="price" class="item_price" id="item_price" required>
+
+        <label for="item_description"><b>Description</b></label>
+        <textarea type="Description" name="description" class="item_Description" id="item_description" required> </textarea>
+
+        <label for="item_category"><b>Category</b></label>
+        <input type="category" name="category" class="item_category" id="item_category" required>
+
+        <button type="submit" class='login_form_button'>
+          Edit Item
+        </button>
+      </div>
+    </form>
+  </section>
+
 </div>
 
 <?php require 'footer.php' ?>

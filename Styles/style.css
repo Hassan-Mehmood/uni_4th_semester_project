@@ -482,7 +482,8 @@ nav.bg-black {
   color: var(--white);
 }
 
-.add_menu_item {
+.add_menu_item,
+.edit_menu_item {
   position: fixed;
   top: 55%;
   left: 50%;
@@ -491,17 +492,20 @@ nav.bg-black {
   width: 100%;
 }
 
-.add_menu_item.hidden {
+.add_menu_item.hidden,
+.edit_menu_item.hidden {
   display: none;
 }
 
-.add_menu_item .container input {
+.add_menu_item .container input,
+.edit_menu_item .container input {
   display: block;
   width: 100%;
   padding: 0.5rem 0.5rem;
   margin-bottom: 1rem;
 }
-.add_menu_item .container textarea {
+.add_menu_item .container textarea,
+.edit_menu_item .container textarea {
   display: block;
   width: 100%;
   max-width: 316px;
@@ -511,15 +515,22 @@ nav.bg-black {
   margin-bottom: 1rem;
 }
 
-.add_menu_item .container label {
+.add_menu_item .container label,
+.edit_menu_item .container label {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
 
-.close_icon img {
+.menu_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.menu_header img {
   display: block;
   max-width: 100%;
   width: 16px;
-  margin-left: auto;
   cursor: pointer;
+  margin-left: auto;
 }
