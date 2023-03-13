@@ -1,3 +1,4 @@
+<?php require_once './Script/connection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
