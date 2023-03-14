@@ -2,7 +2,7 @@
 session_start();
 require 'header.php';
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['admin'])) {
   header("Location: http://localhost/Restraunt%20management%20system/admin.php");
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
       $result = mysqli_stmt_get_result($stmt);
 
       if ($result->num_rows == 1) {
-        $_SESSION['user'] = 'user';
+        $_SESSION['admin'] = 'admin';
         header("Location: http://localhost/Restraunt%20management%20system/admin.php");
       } else {
         $form_error = 'Incorrect username or password';

@@ -1,6 +1,7 @@
 create table customer (
 customer_ID int NOT NULL,
 full_name varchar (20),
+username varchar(20),
 Email varchar (30),
 password varchar (30),
 phone_number numeric (10,2),

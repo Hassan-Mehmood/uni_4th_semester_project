@@ -321,7 +321,10 @@ nav.bg-black {
 
 /* Full-width input fields */
 .username,
-.password {
+.password,
+.email,
+.full_name,
+.phone {
   width: 100%;
   padding: 12px 20px;
   margin: 0.5rem 0 1.5rem 0;
@@ -485,7 +488,6 @@ nav.bg-black {
 .admin_login_error {
   font-size: 12px;
   display: inline-block;
-  margin: 0 0 0.5rem;
   color: red;
 }
 
@@ -540,4 +542,16 @@ nav.bg-black {
   width: 16px;
   cursor: pointer;
   margin-left: auto;
+}
+
+.form_error_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0.5rem;
+}
+
+.signup_form {
+  margin-top: 4rem;
+  max-width: 500px;
 }
