@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require 'header.php';
 
 // if (isset($_SESSION['admin'])) {
@@ -9,6 +9,7 @@ require 'header.php';
 $form_error = '';
 $invalid_email = '';
 $invalid_phone_number = '';
+$username_exists = false;
 
 if (isset($_POST['user_signup'])) {
   $username = htmlspecialchars($_POST['uname']);
@@ -18,23 +19,32 @@ if (isset($_POST['user_signup'])) {
   $password = htmlspecialchars($_POST['password']);
 
 
+  //There is a glitch in these if statements 
+  //Will solve it later
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $invalid_email = 'Invalid Email';
   if (!preg_match('/^[0-9]{11}+$/', $phone)) $invalid_phone_number = 'Invalid Phone number';
+
 
 
   if (empty(trim($username)) || empty(trim($fullname)) || empty(trim($email)) || empty(trim($phone))  || empty(trim($password))) {
     $form_error = 'Empty fields';
   } else {
-    $sql_query = "INSERT INTO costumer (username, full_name, email, phone_number, password) VALUES (?, ?, ?, ?, PASSWORD(?))";
+    $check_username_query = "SELECT * FROM costumer WHERE username = ?";
+    $username_exists = username_exists($conn, $check_username_query, $username);
 
-    if ($stmt = mysqli_prepare($conn, $sql_query)) {
-      mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $fullname, $phone, $password);
-      mysqli_stmt_execute($stmt);
-      $result = mysqli_stmt_get_result($stmt);
-
-      header("Location: http://localhost/Restraunt%20management%20system/user_login.php");
+    if ($username_exists) {
+      $form_error = 'Username already exists';
     } else {
-      $form_error = 'Something went wrong';
+      $sql_query = "INSERT INTO costumer (username, full_name, email, phone_number, password) VALUES (?, ?, ?, ?, PASSWORD(?))";
+
+      if ($stmt = mysqli_prepare($conn, $sql_query)) {
+        mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $fullname, $phone, $password);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_get_result($stmt);
+        header("Location: http://localhost/Restraunt%20management%20system/user_login.php");
+      } else {
+        $form_error = 'Something went wrong';
+      }
     }
   }
 }

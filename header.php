@@ -1,4 +1,14 @@
-<?php require_once './Script/connection.php'; ?>
+<?php
+session_start();
+require_once './Script/connection.php';
+require_once './Script/functions.php';
+$active_user = '';
+
+if (isset($_SESSION['active_user'])) {
+  $active_user = $_SESSION['active_user'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +31,12 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="#about_us">About us</a></li>
         <li><a href="menu.php">Menu</a></li>
-        <li><a href="user_login.php">Log in</a></li>
-        <li><a href="admin.php">Admin</a></li>
+        <!-- <li><a href="user_login.php"><?= $active_user  ?></a></li> -->
+        <li>
+          <?php if ($active_user == '') { ?>
+            <a href="user_login.php">Login</a>
+          <?php } else { ?> <a href="./Script/user_logout.php">Log out</a> <?php } ?>
+        </li>
       </ul>
     </div>
   </nav>
