@@ -464,9 +464,10 @@ nav.bg-black {
   margin-bottom: 1rem;
 }
 
-.admin_menu_section button {
+.admin_menu_section a {
   font-family: var(--roboto);
   background-color: var(--green);
+  text-decoration: none;
   color: var(--white);
   padding: 0.65rem 1.25rem;
   border: none;
@@ -476,11 +477,11 @@ nav.bg-black {
   transition: background 100ms ease;
 }
 
-.admin_menu_item button:last-child {
+.admin_menu_item a:last-child {
   background-color: var(--red);
 }
 
-.admin_menu_section button:hover {
+.admin_menu_section a:hover {
   background-color: #000;
   color: var(--white);
 }
@@ -493,17 +494,9 @@ nav.bg-black {
 
 .add_menu_item,
 .edit_menu_item {
-  position: fixed;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 350px;
+  max-width: 450px;
   width: 100%;
-}
-
-.add_menu_item.hidden,
-.edit_menu_item.hidden {
-  display: none;
+  margin: 8rem auto 0;
 }
 
 .add_menu_item .container input,
@@ -517,7 +510,7 @@ nav.bg-black {
 .edit_menu_item .container textarea {
   display: block;
   width: 100%;
-  max-width: 316px;
+  max-width: 416px;
   height: 100px;
   resize: none;
   padding: 0.5rem 0.5rem;
@@ -531,9 +524,8 @@ nav.bg-black {
 }
 
 .menu_header {
-  display: flex;
-  align-items: center;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .menu_header img {
@@ -554,4 +546,12 @@ nav.bg-black {
 .signup_form {
   margin-top: 4rem;
   max-width: 500px;
+}
+
+.add_item_form_response {
+  text-align: center;
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 12px;
+  color: green;
 }
