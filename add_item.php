@@ -28,6 +28,7 @@ if (isset($_POST['add_item'])) {
       $result = mysqli_stmt_get_result($stmt);
 
       $form_response = 'Item added';
+      header("Location: http://localhost/Restraunt%20management%20system/admin.php");
     } else {
       $form_response = 'Something went wrong';
     }

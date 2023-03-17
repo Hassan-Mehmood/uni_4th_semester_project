@@ -12,16 +12,6 @@ if (!isset($_SESSION['admin'])) {
 
 $sql_query = 'SELECT * FROM item';
 $result = mysqli_query($conn, $sql_query);
-
-// if (mysqli_num_rows($result) > 0) {
-//   while ($row = mysqli_fetch_assoc($result)) {
-//     echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
-//   }
-// } else {
-//   echo "0 results";
-// }
-
-
 ?>
 
 <div class="max_width">
@@ -40,7 +30,7 @@ $result = mysqli_query($conn, $sql_query);
               </div>
               <div class="menu_item_text">
                 <h4 class="menu_item_name"><?= $row['name'] ?></h4>
-                <span class="menu_item_price"><?= $row['price'] ?></span>
+                <span class="menu_item_price">$<?= $row['price'] ?></span>
                 <p class="menu_item_detail">
                   <?= $row['description'] ?>
                 </p>
@@ -48,7 +38,7 @@ $result = mysqli_query($conn, $sql_query);
             </div>
             <div>
               <a href="edit_item.php?id=<?= $row['id'] ?>">Edit</a>
-              <a>Delete</a>
+              <a href="./Script/delete_item.php?id=<?= $row['id'] ?>">Delete</a>
             </div>
           </div>
       <?php }

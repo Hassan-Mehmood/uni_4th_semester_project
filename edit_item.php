@@ -1,22 +1,13 @@
 <?php require 'header.php';
 $form_error = '';
 $form_response = '';
+$id = $_GET['id'];
 
 // Checking if the admin is logged in
 if (!isset($_SESSION['admin'])) {
   // If adming is not loggedin redirect to the login page
   header("Location: http://localhost/Restraunt%20management%20system/admin_login.php");
 }
-
-
-$id = $_GET['id'];
-
-// Getting the item to populate the form
-$query = "SELECT * FROM item WHERE id=$id";
-$queryResult = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($queryResult);
-
-
 
 if (isset($_POST['update_item'])) {
   $itemName = htmlspecialchars($_POST['item_name']);
@@ -42,6 +33,15 @@ if (isset($_POST['update_item'])) {
     }
   }
 }
+
+
+// Getting the item to populate the form
+$query = "SELECT * FROM item WHERE id=$id";
+$queryResult = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($queryResult);
+
+
+
 ?>
 
 
