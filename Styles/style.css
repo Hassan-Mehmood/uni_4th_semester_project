@@ -263,6 +263,12 @@ nav.bg-black {
   max-width: 100%;
   object-fit: contain;
 }
+.menu_item .menu_item_img,
+.admin_menu_item .menu_item_img {
+  border-radius: 5px;
+  min-width: 115px;
+  overflow: hidden;
+}
 
 .menu_item,
 .admin_menu_item .item_info {
@@ -270,6 +276,11 @@ nav.bg-black {
   align-items: center;
   gap: 0.75rem;
   margin: 2.5rem 0;
+}
+
+.admin_menu_item .menu_item_btns {
+  min-width: 160px;
+  margin-left: 3rem;
 }
 
 .menu_item .menu_item_text .menu_item_name,
@@ -292,6 +303,16 @@ nav.bg-black {
 .admin_menu_item .menu_item_text .menu_item_detail {
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.8rem;
+}
+
+.menu_item_text .menu_item_category {
+  font-size: 12px;
+  margin-bottom: 1rem;
+  background-color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 50px;
 }
 
 @media screen and (min-width: 800px) {

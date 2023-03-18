@@ -28,15 +28,21 @@ $result = mysqli_query($conn, $sql_query);
               <div class="menu_item_img">
                 <img src="./Images/menu_item1.jpg" alt="Food Item Image" />
               </div>
+
               <div class="menu_item_text">
-                <h4 class="menu_item_name"><?= $row['name'] ?></h4>
-                <span class="menu_item_price">$<?= $row['price'] ?></span>
-                <p class="menu_item_detail">
-                  <?= $row['description'] ?>
-                </p>
+                <div>
+                  <h4 class="menu_item_category"><?= $row['category'] ?></h4>
+                </div>
+                <div>
+                  <h4 class="menu_item_name"><?= $row['name'] ?></h4>
+                  <span class="menu_item_price">$<?= $row['price'] ?></span>
+                  <p class="menu_item_detail">
+                    <?= $row['description'] ?>
+                  </p>
+                </div>
               </div>
             </div>
-            <div>
+            <div class="menu_item_btns">
               <a href="edit_item.php?id=<?= $row['id'] ?>">Edit</a>
               <a href="./Script/delete_item.php?id=<?= $row['id'] ?>">Delete</a>
             </div>

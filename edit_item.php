@@ -34,20 +34,17 @@ if (isset($_POST['update_item'])) {
   }
 }
 
-
 // Getting the item to populate the form
 $query = "SELECT * FROM item WHERE id=$id";
 $queryResult = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($queryResult);
-
-
-
 ?>
 
 
 <section class="edit_menu_item hidden">
   <form class="modal-content" method="post">
     <div class="container">
+      <a href="admin.php">Back</a>
       <div class="menu_header">
         <h3>Edit Item</h3>
       </div>

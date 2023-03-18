@@ -39,6 +39,7 @@ if (isset($_POST['add_item'])) {
 <section class="add_menu_item">
   <form class="modal-content" action="" method="post">
     <div class="container">
+      <a href="admin.php">Back</a>
       <div class="menu_header">
         <h3>Add Item</h3>
       </div>
