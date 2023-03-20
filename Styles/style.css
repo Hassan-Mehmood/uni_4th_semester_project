@@ -233,7 +233,7 @@ nav.bg-black {
 }
 
 .menu_section {
-  padding: 3rem 0 0 0;
+  padding: 8rem 0 0 0;
 }
 .menu_section .menu_welcome,
 .menu_section .menu_heading {
@@ -261,19 +261,16 @@ nav.bg-black {
 .admin_menu_item .menu_item_img img {
   display: block;
   max-width: 100%;
-  object-fit: contain;
+  border-radius: 3px;
 }
 .menu_item .menu_item_img,
 .admin_menu_item .menu_item_img {
-  border-radius: 5px;
-  min-width: 115px;
-  overflow: hidden;
+  min-width: 150px;
 }
 
 .menu_item,
 .admin_menu_item .item_info {
   display: flex;
-  align-items: center;
   gap: 0.75rem;
   margin: 2.5rem 0;
 }
@@ -314,20 +311,11 @@ nav.bg-black {
   color: #fff;
   border-radius: 50px;
 }
-
-@media screen and (min-width: 800px) {
-  .menu_items {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .menu_item {
-    margin: 1rem 0;
-  }
+.imageContainer .imageLabel img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
-
 /* Login page */
 
 .form {
