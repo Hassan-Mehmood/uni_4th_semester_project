@@ -8,7 +8,6 @@ if (!isset($_SESSION['admin'])) {
   header("Location: http://localhost/Restraunt%20management%20system/admin_login.php");
 }
 
-
 if (isset($_POST['add_item'])) {
   $itemName = htmlspecialchars($_POST['item_name']);
   $price = htmlspecialchars($_POST['price']);
@@ -16,31 +15,36 @@ if (isset($_POST['add_item'])) {
   $category = htmlspecialchars($_POST['category']);
   $image = $_FILES['mainImage'];
 
+
+  //Process the image that is uploaded by the user
   $target_dir = "uploads/";
   $target_file = $target_dir . basename($_FILES["mainImage"]["name"]);
-  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  $uploadOk = 1;
+  $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-  $check = getimagesize($_FILES["mainImage"]["name"]);
-  if (!$check) $form_error = "File is not an image.";
+  if (!copy($_FILES["mainImage"]["tmp_name"], $target_file)) {
+    echo "Sorry, there was an error uploading your file.";
+  }
 
-  // if (empty(trim($itemName)) || empty(trim($price)) || empty(trim($description)) || empty(trim($category))) {
-  //   $form_error = 'Empty Fields';
-  // } else if (!preg_match('/^[0-9]*$/', $price)) {
-  //   $form_error = 'Price should be a number';
-  // } else {
-  //   $sql_query = "INSERT INTO item (name, description, price, category) VALUES (?, ?, ?, ?)";
+  // used to store the filename in a variable
+  $image = basename($_FILES["mainImage"]["name"], ".jpg");
 
-  //   if ($stmt = mysqli_prepare($conn, $sql_query)) {
-  //     mysqli_stmt_bind_param($stmt, "ssis", $itemName, $description, $price, $category);
-  //     mysqli_stmt_execute($stmt);
-  //     $result = mysqli_stmt_get_result($stmt);
-
-  //     $form_response = 'Item added';
-  //     header("Location: http://localhost/Restraunt%20management%20system/admin.php");
-  //   } else {
-  //     $form_response = 'Something went wrong';
-  //   }
-  // }
+  if (empty(trim($itemName)) || empty(trim($price)) || empty(trim($description)) || empty(trim($category))) {
+    $form_error = 'Empty Fields';
+  } else if (!preg_match('/^[0-9]*$/', $price)) {
+    $form_error = 'Price should be a number';
+  } else {
+    $sql_query = "INSERT INTO item (name, description, price, category,image) VALUES (?, ?, ?, ?, ?)";
+    if ($stmt = mysqli_prepare($conn, $sql_query)) {
+      mysqli_stmt_bind_param($stmt, "ssiss", $itemName, $description, $price, $category, $image);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+      $form_response = 'Item added';
+      header("Location: http://localhost/Restraunt%20management%20system/admin.php");
+    } else {
+      $form_response = 'Something went wrong';
+    }
+  }
 }
 ?>
 
