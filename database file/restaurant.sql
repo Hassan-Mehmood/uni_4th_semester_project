@@ -8,15 +8,15 @@ phone_number numeric (10,2),
 PRIMARY KEY (customer_ID)
 );
 
-create table orders (
-order_id int not null,
-customer_ID int,
-primary key (order_id),
-foreign key (customer_ID) references customer,
-order_date_time timestamp,
-total_amount decimal (10,2),
-payment_type varchar (20)
-);
+-- create table orders (
+-- order_id int not null,
+-- customer_ID int,
+-- primary key (order_id),
+-- foreign key (customer_ID) references customer,
+-- order_date_time timestamp,
+-- total_amount decimal (10,2),
+-- payment_type varchar (20)
+-- );
 
 
 

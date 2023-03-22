@@ -13,7 +13,7 @@ $result = mysqli_query($conn, $sql_query);
       while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="menu_item">
           <div class="menu_item_img">
-            <img src="./Images/menu_item1.jpg" alt="Food Item Image" />
+            <img src="./uploads/<?= $row['image'] ?>" alt="Food Item Image" />
           </div>
           <div class="menu_item_text">
             <div>

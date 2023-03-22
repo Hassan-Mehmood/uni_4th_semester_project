@@ -29,8 +29,9 @@ if (isset($_SESSION['active_user'])) {
       </div>
       <ul class="nav_links">
         <li><a href="index.php">Home</a></li>
-        <li><a href="#about_us">About us</a></li>
+        <li><a href="index.php#about_us">About us</a></li>
         <li><a href="menu.php">Menu</a></li>
+        <li><a href="reservation.php">Reservation</a></li>
         <li>
           <?php if ($active_user == '') { ?>
             <a href="user_login.php">Login</a>

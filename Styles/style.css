@@ -564,3 +564,35 @@ nav.bg-black {
   font-size: 12px;
   color: green;
 }
+
+.reservation_form {
+  min-width: 400px;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.reservation_form input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.reservation_form input[type='datetime-local'] {
+  text-align: center;
+}
+
+.reservation_form label {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.reservation_form button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
