@@ -33,7 +33,7 @@ if (isset($_SESSION['active_user'])) {
         <li><a href="menu.php">Menu</a></li>
         <li><a href="reservation.php">Reservation</a></li>
         <li>
-          <?php if ($active_user == '') { ?>
+          <?php if (!$active_user) { ?>
             <a href="user_login.php">Login</a>
           <?php } else { ?> <a href="./Script/user_logout.php">Log out</a> <?php } ?>
         </li>

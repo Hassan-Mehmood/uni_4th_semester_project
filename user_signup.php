@@ -29,13 +29,13 @@ if (isset($_POST['user_signup'])) {
   if (empty(trim($username)) || empty(trim($fullname)) || empty(trim($email)) || empty(trim($phone))  || empty(trim($password))) {
     $form_error = 'Empty fields';
   } else {
-    $check_username_query = "SELECT * FROM costumer WHERE username = ?";
+    $check_username_query = "SELECT * FROM customer WHERE username = ?";
     $username_exists = username_exists($conn, $check_username_query, $username);
 
     if ($username_exists) {
       $form_error = 'Username already exists';
     } else {
-      $sql_query = "INSERT INTO costumer (username, full_name, email, phone_number, password) VALUES (?, ?, ?, ?, PASSWORD(?))";
+      $sql_query = "INSERT INTO customer (username, full_name, email, phone_number, password) VALUES (?, ?, ?, ?, PASSWORD(?))";
 
       if ($stmt = mysqli_prepare($conn, $sql_query)) {
         mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $fullname, $phone, $password);

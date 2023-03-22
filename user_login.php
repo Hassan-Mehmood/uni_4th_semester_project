@@ -11,14 +11,14 @@ if (isset($_POST['login'])) {
   if (empty(trim($username)) || empty(trim($password))) {
     $form_error = 'Empty fields';
   } else {
-    $sql_query = "SELECT * FROM costumer WHERE username = ? AND password = PASSWORD(?)";
+    $sql_query = "SELECT * FROM customer WHERE username = ? AND password = PASSWORD(?)";
     if ($stmt = mysqli_prepare($conn, $sql_query)) {
       mysqli_stmt_bind_param($stmt, "ss", $username, $password);
       mysqli_stmt_execute($stmt);
       $result = mysqli_stmt_get_result($stmt);
 
       if ($result->num_rows == 1) {
-        $_SESSION['active_user'] = $username;
+        $_SESSION['active_user'] = $result->fetch_assoc();
         header("Location: http://localhost/Restraunt%20management%20system/index.php");
       } else {
         $form_error = 'Incorrect username or password';
