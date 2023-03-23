@@ -7,6 +7,8 @@ $invalid_phone_number = '';
 
 if (isset($_SESSION['active_user'])) {
   $active_user = $_SESSION['active_user'];
+} else {
+  header("Location: http://localhost/Restraunt%20management%20system/user_login.php");
 }
 
 if (isset($_POST['reservation'])) {

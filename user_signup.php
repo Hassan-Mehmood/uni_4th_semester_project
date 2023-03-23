@@ -1,10 +1,4 @@
-<?php
-// session_start();
-require 'header.php';
-
-// if (isset($_SESSION['admin'])) {
-//   header("Location: http://localhost/Restraunt%20management%20system/admin.php");
-// }
+<?php require 'header.php';
 
 $form_error = '';
 $invalid_email = '';
@@ -38,7 +32,7 @@ if (isset($_POST['user_signup'])) {
       $sql_query = "INSERT INTO customer (username, full_name, email, phone_number, password) VALUES (?, ?, ?, ?, PASSWORD(?))";
 
       if ($stmt = mysqli_prepare($conn, $sql_query)) {
-        mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $fullname, $phone, $password);
+        mysqli_stmt_bind_param($stmt, "sssss", $username, $fullname, $email, $phone, $password);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_get_result($stmt);
         header("Location: http://localhost/Restraunt%20management%20system/user_login.php");
