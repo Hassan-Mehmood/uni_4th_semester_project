@@ -578,13 +578,17 @@ nav.bg-black {
   margin-bottom: 1rem;
 }
 
+/* .reservation_form input[name='table_number'] { */
+/* margin-bottom: 0.25rem; */
+/* } */
+
 .reservation_form input[type='datetime-local'] {
   text-align: center;
 }
 
 .reservation_form label {
   margin-bottom: 0.5rem;
-  display: block;
+  display: inline-block;
 }
 
 .reservation_form button {
@@ -595,4 +599,14 @@ nav.bg-black {
   border: none;
   cursor: pointer;
   width: 100%;
+}
+
+.reservation_form .reservation_table_error {
+  color: red;
+  font-size: 12px;
+}
+
+.reservation_form .reservation_table_success {
+  color: #04aa6d;
+  font-size: 12px;
 }
