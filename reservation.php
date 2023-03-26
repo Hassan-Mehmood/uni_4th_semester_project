@@ -6,6 +6,9 @@ $reservation_sucess = false;
 
 // if the table is already reserved show the "already resereved table" message to the user else show "the table reserved" to the user.
 
+$query = 'DELETE FROM reservation WHERE reservation_date < (CURDATE())';
+$conn->query($query);
+
 
 $invalid_email = '';
 $invalid_phone_number = '';
@@ -31,12 +34,12 @@ if (isset($_POST['reservation'])) {
   $timeAndDate = htmlspecialchars($_POST['date']);
   $attendees = htmlspecialchars($_POST['attendees']);
 
-  //There is a glitch in these if statements 
-  //Will solve it later
-  if (!preg_match('/^[0-9]{11}+$/', $phone)) $invalid_phone_number = 'Invalid Phone number';
 
-  if (empty(trim($name)) || empty(trim($phone)) || empty(trim($timeAndDate)) || empty(trim($attendees)) || in_array($table_number, $reserved_Tables)) {
+  // Feeling pretty embarrassed about this code :( 
+  // But I just don't have the motivation to fix it right now
+  if (empty(trim($name)) || empty(trim($phone)) || empty(trim($timeAndDate)) || empty(trim($attendees)) || in_array($table_number, $reserved_Tables) || !preg_match('/^[0-9]{11}+$/', $phone)) {
     if (in_array($table_number, $reserved_Tables)) $table_error = true;
+    else if (!preg_match('/^[0-9]{11}+$/', $phone)) $invalid_phone_number = 'Invalid Phone number';
     else $form_error = 'Empty fields';
   } else {
 
@@ -52,10 +55,7 @@ if (isset($_POST['reservation'])) {
       $form_error = 'Something went wrong';
     }
   }
-}
-
-
-?>
+} ?>
 
 <section class="form max_width">
   <div>
