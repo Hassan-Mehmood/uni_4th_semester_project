@@ -3,7 +3,7 @@
 require 'header.php';
 
 if (isset($_SESSION['admin'])) {
-  header("Location: http://localhost/Restraunt%20management%20system/admin.php");
+  header("Location: http://localhost/Restaurant%20management%20system/admin.php");
 }
 
 $form_error = '';
@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
 
       if ($result->num_rows == 1) {
         $_SESSION['admin'] = 'admin';
-        header("Location: http://localhost/Restraunt%20management%20system/admin.php");
+        header("Location: http://localhost/Restaurant%20management%20system/admin.php");
       } else {
         $form_error = 'Incorrect username or password';
       }

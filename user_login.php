@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 
       if ($result->num_rows == 1) {
         $_SESSION['active_user'] = $result->fetch_assoc();
-        header("Location: http://localhost/Restraunt%20management%20system/index.php");
+        header("Location: http://localhost/Restaurant%20management%20system/index.php");
       } else {
         $form_error = 'Incorrect username or password';
       }

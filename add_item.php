@@ -5,7 +5,7 @@ $form_response = '';
 // Checking if the admin is logged in
 if (!isset($_SESSION['admin'])) {
   // If adming is not loggedin redirect to the login page
-  header("Location: http://localhost/Restraunt%20management%20system/admin_login.php");
+  header("Location: http://localhost/Restaurant%20management%20system/admin_login.php");
 }
 
 if (isset($_POST['add_item'])) {
@@ -40,7 +40,7 @@ if (isset($_POST['add_item'])) {
       mysqli_stmt_execute($stmt);
       $result = mysqli_stmt_get_result($stmt);
       $form_response = 'Item added';
-      header("Location: http://localhost/Restraunt%20management%20system/admin.php");
+      header("Location: http://localhost/Restaurant%20management%20system/admin.php");
     } else {
       $form_response = 'Something went wrong';
     }

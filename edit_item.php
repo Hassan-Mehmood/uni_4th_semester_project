@@ -6,7 +6,7 @@ $id = $_GET['id'];
 // Checking if the admin is logged in
 if (!isset($_SESSION['admin'])) {
   // If adming is not loggedin redirect to the login page
-  header("Location: http://localhost/Restraunt%20management%20system/admin_login.php");
+  header("Location: http://localhost/Restaurant%20management%20system/admin_login.php");
 }
 
 if (isset($_POST['update_item'])) {

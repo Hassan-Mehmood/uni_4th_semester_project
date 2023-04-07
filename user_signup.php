@@ -35,7 +35,7 @@ if (isset($_POST['user_signup'])) {
         mysqli_stmt_bind_param($stmt, "sssss", $username, $fullname, $email, $phone, $password);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_get_result($stmt);
-        header("Location: http://localhost/Restraunt%20management%20system/user_login.php");
+        header("Location: http://localhost/Restaurant%20management%20system/user_login.php");
       } else {
         $form_error = 'Something went wrong';
       }

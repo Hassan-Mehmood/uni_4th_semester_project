@@ -2,12 +2,10 @@
 // session_start();
 require 'header.php';
 
-$form_error = '';
-
 // Checking if the admin is logged in
 if (!isset($_SESSION['admin'])) {
   // If adming is not loggedin redirect to the login page
-  header("Location: http://localhost/Restraunt%20management%20system/admin_login.php");
+  header("Location: http://localhost/Restaurant%20management%20system/admin_login.php");
 }
 
 $sql_query = 'SELECT * FROM item';
@@ -18,6 +16,7 @@ $result = mysqli_query($conn, $sql_query);
   <section class="admin_menu_section " id="menu">
     <div class="add_menu_item_button">
       <a href="add_item.php">Add Item</a>
+      <a href="admin_reservations.php">Check reservations</a>
     </div>
     <div class="admin_menu_items">
       <?php
