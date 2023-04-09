@@ -1,4 +1,5 @@
 const nav = document.getElementsByClassName('nav')[0];
+const reservationBtn = document.getElementsByClassName('nav')[0];
 
 window.addEventListener('scroll', handleScrollEvent);
 
