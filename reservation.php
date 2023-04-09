@@ -3,11 +3,15 @@ require 'header.php';
 $form_error = '';
 $table_error = false;
 $reservation_sucess = false;
+$show_table = false;
+$show_form = true;
 
 // if the table is already reserved show the "already resereved table" message to the user else show "the table reserved" to the user.
-
 $query = 'DELETE FROM reservation WHERE reservation_date < (CURDATE())';
 $conn->query($query);
+
+$sql_query = 'SELECT * FROM reservation';
+$check_user_reservations = mysqli_query($conn, $sql_query);
 
 
 $invalid_email = '';
@@ -59,6 +63,32 @@ if (isset($_POST['reservation'])) {
 
 <section class="form max_width">
   <div>
+
+    <?php if ($show_table) { ?>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Reservation Name</th>
+          <th>Phone Number</th>
+          <th>Date</th>
+          <th>Table number</th>
+          <th>Num of attendees</th>
+        </tr>
+        <?php if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) { ?>
+            <tr>
+              <td><?= $row['id'] ?></td>
+              <td><?= $row['reservation_name'] ?></td>
+              <td><?= $row['phone'] ?></td>
+              <td><?= $row['reservation_date'] ?></td>
+              <td><?= $row['table_number'] ?></td>
+              <td><?= $row['num_of_attendees'] ?></td>
+            </tr>
+        <?php }
+        } ?>
+      </table>
+    <?php } ?>
+
     <form class="modal-content reservation_form" action="" method="post">
       <div class="container">
         <label for="name">Name:</label>
