@@ -327,6 +327,22 @@ nav.bg-black {
   height: calc(100vh - 131px);
   min-height: 43.75rem; /*700px*/
 }
+.form .reservation_table_heading {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: var(--roboto);
+}
+
+.form .reservation_table_button {
+  display: block;
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  margin: 1rem auto;
+}
 
 /* Full-width input fields */
 .username,
