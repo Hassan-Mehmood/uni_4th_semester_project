@@ -587,6 +587,14 @@ nav.bg-black {
   width: 100%;
 }
 
+.reservation_form.hide {
+  display: none;
+}
+
+.reservation_table.hide {
+  display: none;
+}
+
 .reservation_form input {
   display: block;
   width: 100%;
