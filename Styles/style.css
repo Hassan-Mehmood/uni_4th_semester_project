@@ -316,6 +316,15 @@ nav.bg-black {
   width: 100%;
   max-width: 100%;
 }
+
+.table-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 131px);
+  min-height: 43.75rem; /*700px*/
+}
+
 /* Login page */
 
 .form {
@@ -333,7 +342,7 @@ nav.bg-black {
   font-family: var(--roboto);
 }
 
-.form .reservation_table_button {
+.table-section .reservation_table_button {
   display: block;
   background-color: #04aa6d;
   color: white;
@@ -614,7 +623,7 @@ nav.bg-black {
   background-color: #66853f;
 }
 
-.open-btn,
+/* .open-btn,
 .close-btn {
   border: none;
   cursor: pointer;
@@ -642,10 +651,14 @@ nav.bg-black {
 .close-btn:hover {
   opacity: 1;
   scale: 1.125;
+  
+} */
+
+.order_modal {
+  margin-top: 5rem;
 }
 
 .modal {
-  position: relative;
   height: auto;
   width: 50%;
   max-width: 725px;
@@ -686,6 +699,10 @@ nav.bg-black {
   color: white;
   border: none;
   margin-top: 0.5rem;
+}
+.modal_menu_item_btn a {
+  color: white;
+  text-decoration: none;
 }
 
 .modal_menu_item_btn:hover {
@@ -744,4 +761,18 @@ tr:nth-child(even) {
 
 .admin_menu_section .admin_reservations {
   margin-bottom: 2rem;
+}
+
+.reservation_details {
+  max-width: 500px;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.reservation_details p {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+.reservation_details span {
+  font-weight: 500;
 }

@@ -6,6 +6,7 @@ $table_error = false;
 $reservation_sucess = false;
 $show_table = false;
 // $show_form = true;
+$order_result = $_GET['order_result'];
 
 if (isset($_SESSION['active_user'])) {
   $active_user = $_SESSION['active_user'];
@@ -20,11 +21,14 @@ $query = 'DELETE FROM reservation WHERE reservation_date < (CURDATE())';
 $conn->query($query);
 
 $active_user_id = $_SESSION['active_user']['id'];
+
 $sql_query = "SELECT * FROM reservation WHERE customer_id = $active_user_id";
 $check_user_reservations = mysqli_query($conn, $sql_query);
 
-if (mysqli_num_rows($check_user_reservations) > 0) $show_table = true;
+// $orders_query = "SELECT * FROM orders";
+// $check_orders = mysqli_query($conn, $orders_query);
 
+if (mysqli_num_rows($check_user_reservations) > 0) $show_table = true;
 
 $invalid_email = '';
 $invalid_phone_number = '';
@@ -70,10 +74,11 @@ if (isset($_POST['reservation'])) {
 }
 ?>
 
-<section class="form max_width">
+<section class="table-section max_width">
   <div>
     <div id="reservation_table" class="reservation_table <?= $show_table ? '' : 'hide' ?>">
-      <h1 class="reservation_table_heading">Your Reservation</h1>
+      <?= $order_result === 'success' ? 'Items added to your order' : '' ?>
+      <h1 class="reservation_table_heading" style="margin-bottom: 20px;">Your Reservations</h1>
       <table>
         <tr>
           <th>ID</th>
@@ -82,7 +87,8 @@ if (isset($_POST['reservation'])) {
           <th>Date</th>
           <th>Table number</th>
           <th>Num of attendees</th>
-          <th>Action</th>
+          <th>Actions</th>
+          <th>Details</th>
         </tr>
         <?php if (mysqli_num_rows($check_user_reservations) > 0) {
           while ($row = mysqli_fetch_assoc($check_user_reservations)) { ?>
@@ -93,7 +99,16 @@ if (isset($_POST['reservation'])) {
               <td><?= $row['reservation_date'] ?></td>
               <td><?= $row['table_number'] ?></td>
               <td><?= $row['num_of_attendees'] ?></td>
-              <td><button class="reservation_table_action_btn">Order</button></td>
+              <td>
+                <a href="reservation_order.php?id=<?= $row['id'] ?>" class="reservation_table_action_btn">
+                  Order
+                </a>
+              </td>
+              <td>
+                <a href="single_reservation.php?id=<?= $row['id'] ?>" class="reservation_table_action_btn">
+                  Check Order
+                </a>
+              </td>
             </tr>
         <?php }
         } ?>
@@ -132,7 +147,6 @@ if (isset($_POST['reservation'])) {
 
       </div>
     </form>
-    <?php include 'modal.php' ?>
   </div>
 </section>
 
