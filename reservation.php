@@ -78,6 +78,7 @@ if (isset($_POST['reservation'])) {
           <th>Date</th>
           <th>Table number</th>
           <th>Num of attendees</th>
+          <th>Action</th>
         </tr>
         <?php if (mysqli_num_rows($check_user_reservations) > 0) {
           while ($row = mysqli_fetch_assoc($check_user_reservations)) { ?>
@@ -88,6 +89,7 @@ if (isset($_POST['reservation'])) {
               <td><?= $row['reservation_date'] ?></td>
               <td><?= $row['table_number'] ?></td>
               <td><?= $row['num_of_attendees'] ?></td>
+              <td><button class="reservation_table_action_btn">Order</button></td>
             </tr>
         <?php }
         } ?>
@@ -124,6 +126,7 @@ if (isset($_POST['reservation'])) {
 
       </div>
     </form>
+    <?php include 'modal.php' ?>
   </div>
 </section>
 

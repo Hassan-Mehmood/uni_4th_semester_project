@@ -18,3 +18,28 @@ function handleBtnClick() {
   reservationTable.classList.add('hide');
   reservationForm.classList.remove('hide');
 }
+
+const openButton = document.querySelector('.reservation_table_action_btn');
+const closeButton = document.querySelector('.close-btn');
+const modal = document.querySelector('.modal');
+const dialog = document.querySelector('dialog');
+
+openButton.addEventListener('click', () => {
+  modal.showModal();
+});
+
+closeButton.addEventListener('click', () => {
+  modal.close();
+});
+
+dialog.addEventListener('click', (e) => {
+  const dialogDimensions = dialog.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dialog.close();
+  }
+});

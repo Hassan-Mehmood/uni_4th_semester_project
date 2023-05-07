@@ -602,6 +602,71 @@ nav.bg-black {
   margin-bottom: 1rem;
 }
 
+.reservation_table table .reservation_table_action_btn {
+  background-color: var(--green);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.reservation_table table .reservation_table_action_btn:hover {
+  background-color: #66853f;
+}
+
+.open-btn,
+.close-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.open-btn {
+  background-color: hsl(195, 53%, 79%);
+  padding: 16px 32px;
+  border-radius: 8px;
+  transition: 350ms ease;
+}
+
+.open-btn:hover {
+  background-color: hsl(195, 53%, 69%);
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  opacity: 0.8;
+  transition: 350ms ease;
+}
+
+.close-btn:hover {
+  opacity: 1;
+  scale: 1.125;
+}
+
+.modal {
+  position: relative;
+  height: auto;
+  width: 50%;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+}
+
+.modal::backdrop {
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.modal p {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
 /* .reservation_form input[name='table_number'] { */
 /* margin-bottom: 0.25rem; */
 /* } */
