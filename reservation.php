@@ -7,12 +7,20 @@ $reservation_sucess = false;
 $show_table = false;
 // $show_form = true;
 
+if (isset($_SESSION['active_user'])) {
+  $active_user = $_SESSION['active_user'];
+  $active_user_id = $active_user['id'];
+} else {
+  header("Location: http://localhost/Restaurant%20management%20system/user_login.php");
+}
+
+
 // if the table is already reserved show the "already resereved table" message to the user else show "the table reserved" to the user.
 $query = 'DELETE FROM reservation WHERE reservation_date < (CURDATE())';
 $conn->query($query);
 
 $active_user_id = $_SESSION['active_user']['id'];
-$sql_query = "SELECT * FROM reservation WHERE customer_id = 9";
+$sql_query = "SELECT * FROM reservation WHERE customer_id = $active_user_id";
 $check_user_reservations = mysqli_query($conn, $sql_query);
 
 if (mysqli_num_rows($check_user_reservations) > 0) $show_table = true;
@@ -21,11 +29,7 @@ if (mysqli_num_rows($check_user_reservations) > 0) $show_table = true;
 $invalid_email = '';
 $invalid_phone_number = '';
 
-if (isset($_SESSION['active_user'])) {
-  $active_user = $_SESSION['active_user'];
-} else {
-  header("Location: http://localhost/Restaurant%20management%20system/user_login.php");
-}
+
 
 $reserved_Tables = [];
 $sql = 'SELECT table_number FROM reservation';
@@ -123,6 +127,8 @@ if (isset($_POST['reservation'])) {
         <?php if ($reservation_sucess) { ?>
           <span class="reservation_table_success">Reservation booked</span>
         <?php } ?>
+        <button id="reservation_form_button" class="reservation_table_button">Check reservations</button>
+
 
       </div>
     </form>
