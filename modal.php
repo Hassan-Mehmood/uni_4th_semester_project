@@ -20,8 +20,12 @@
                </div>
                <div class="modal_menu_text">
                  <div>
-                   <h4 class="modal_menu_item_name"><?= $row['name'] ?></h4>
-                   <span class="modal_menu_item_price">$<?= $row['price'] ?></span>
+                   <h4 class="modal_menu_item_name">
+                     <?= $row['name'] ?>
+                     <span class="modal_menu_item_price">$<?= $row['price'] ?></span>
+                   </h4>
+                   <p><?= $row['description']  ?></p>
+                   <button class="modal_menu_item_btn">Add Order</button>
                  </div>
                </div>
              </div>

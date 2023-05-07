@@ -648,6 +648,7 @@ nav.bg-black {
   position: relative;
   height: auto;
   width: 50%;
+  max-width: 725px;
   margin: auto;
   padding: 1rem;
   text-align: center;
@@ -660,11 +661,35 @@ nav.bg-black {
   background-color: rgba(17, 17, 17, 0.4);
 }
 
-.modal p {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  place-items: center;
+.modal_menu_item {
+  display: flex;
+  margin: 2rem 0;
+}
+.modal_menu_item img {
+  max-width: 150px;
+}
+
+.modal_menu_text {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.modal_menu_text .modal_menu_item_price {
+  color: var(--green);
+  margin-left: 0.5rem;
+}
+
+.modal_menu_item_btn {
+  background-color: var(--green);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: white;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.modal_menu_item_btn:hover {
+  background-color: #66853f;
 }
 
 /* .reservation_form input[name='table_number'] { */

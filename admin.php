@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $sql_query);
           <div class="admin_menu_item">
             <div class="item_info">
               <div class="menu_item_img">
-                <img src="./uploads/<?= $row['image'] ?>" alt="Food Item Image" />
+                <img src="./uploads/<?= $row['image'] ?>" alt="<?= $row['image'] ?>" />
               </div>
 
               <div class="menu_item_text">

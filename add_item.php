@@ -1,4 +1,5 @@
-<?php require 'header.php';
+<?php
+require 'header.php';
 $form_error = '';
 $form_response = '';
 
@@ -13,40 +14,63 @@ if (isset($_POST['add_item'])) {
   $price = htmlspecialchars($_POST['price']);
   $description = htmlspecialchars($_POST['description']);
   $category = htmlspecialchars($_POST['category']);
-  $image = $_FILES['mainImage'];
-
 
   //Process the image that is uploaded by the user
   $target_dir = "uploads/";
   $target_file = $target_dir . basename($_FILES["mainImage"]["name"]);
   $uploadOk = 1;
-  $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-  if (!copy($_FILES["mainImage"]["tmp_name"], $target_file)) {
-    echo "Sorry, there was an error uploading your file.";
+  // Check if image file is a actual image or fake image
+  $check = getimagesize($_FILES["mainImage"]["tmp_name"]);
+  if ($check !== false) {
+    $uploadOk = 1;
+  } else {
+    $form_error = "File is not an image.";
+    $uploadOk = 0;
   }
 
-  // used to store the filename in a variable
-  $image = basename($_FILES["mainImage"]["name"], ".jpg");
+  // Check file size
+  if ($_FILES["mainImage"]["size"] > 500000) {
+    $form_error = "Sorry, your file is too large.";
+    $uploadOk = 0;
+  }
 
-  if (empty(trim($itemName)) || empty(trim($price)) || empty(trim($description)) || empty(trim($category))) {
-    $form_error = 'Empty Fields';
-  } else if (!preg_match('/^[0-9]*$/', $price)) {
-    $form_error = 'Price should be a number';
+  // Allow certain file formats
+  if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
+    $form_error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+  }
+
+  if ($uploadOk == 0) {
+    $form_error = "Sorry, your file was not uploaded.";
   } else {
-    $sql_query = "INSERT INTO item (name, description, price, category,image) VALUES (?, ?, ?, ?, ?)";
-    if ($stmt = mysqli_prepare($conn, $sql_query)) {
-      mysqli_stmt_bind_param($stmt, "ssiss", $itemName, $description, $price, $category, $image);
-      mysqli_stmt_execute($stmt);
-      $result = mysqli_stmt_get_result($stmt);
-      $form_response = 'Item added';
-      header("Location: http://localhost/Restaurant%20management%20system/admin.php");
+    if (move_uploaded_file($_FILES["mainImage"]["tmp_name"], $target_file)) {
+      $image = basename($_FILES["mainImage"]["name"]);
+
+      if (empty(trim($itemName)) || empty(trim($price)) || empty(trim($description)) || empty(trim($category))) {
+        $form_error = 'Empty Fields';
+      } else if (!preg_match('/^[0-9]*$/', $price)) {
+        $form_error = 'Price should be a number';
+      } else {
+        $sql_query = "INSERT INTO item (name, description, price, category, image) VALUES (?, ?, ?, ?, ?)";
+        if ($stmt = mysqli_prepare($conn, $sql_query)) {
+          mysqli_stmt_bind_param($stmt, "ssiss", $itemName, $description, $price, $category, $image);
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
+          $form_response = 'Item added';
+          header("Location: http://localhost/Restaurant%20management%20system/admin.php");
+        } else {
+          $form_response = 'Something went wrong';
+        }
+      }
     } else {
-      $form_response = 'Something went wrong';
+      $form_error = "Sorry, there was an error uploading your file.";
     }
   }
 }
 ?>
+
 
 <section class="add_menu_item">
   <form class="modal-content" action="" method="post" enctype="multipart/form-data">
