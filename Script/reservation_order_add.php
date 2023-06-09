@@ -7,7 +7,8 @@ $reservation_id = $_GET['reservation_id'];
 
 // Add code here to validate input and check authorization...
 
-$sql = "INSERT INTO orders (item_id, reservation_id) VALUES (?, ?)";
+// Add order to reservation
+$sql = "INSERT INTO orders (item_id, reservation_id) VALUES ($item_id, $reservation_id)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $item_id, $reservation_id);
 $stmt->execute();

@@ -53,7 +53,8 @@ if (isset($_POST['add_item'])) {
       } else if (!preg_match('/^[0-9]*$/', $price)) {
         $form_error = 'Price should be a number';
       } else {
-        $sql_query = "INSERT INTO item (name, description, price, category, image) VALUES (?, ?, ?, ?, ?)";
+        // Add item
+        $sql_query = "INSERT INTO item (name, description, price, category, image) VALUES ($itemName, $description, $price, $category, $image)";
         if ($stmt = mysqli_prepare($conn, $sql_query)) {
           mysqli_stmt_bind_param($stmt, "ssiss", $itemName, $description, $price, $category, $image);
           mysqli_stmt_execute($stmt);

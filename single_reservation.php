@@ -2,6 +2,7 @@
 
 $reservation_id = $_GET['id'];
 
+
 $sql = "SELECT o.*, r.*, i.*
         FROM orders o
         INNER JOIN reservation r ON o.reservation_id = r.id

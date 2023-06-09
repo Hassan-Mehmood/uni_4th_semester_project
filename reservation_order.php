@@ -1,5 +1,6 @@
 <?php require 'header.php';
 
+// Get all items
 $sql_query = 'SELECT * FROM item';
 $result = mysqli_query($conn, $sql_query);
 

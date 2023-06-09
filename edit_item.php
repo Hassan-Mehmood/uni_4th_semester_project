@@ -20,7 +20,8 @@ if (isset($_POST['update_item'])) {
   } else if (!preg_match('/^[0-9]*$/', $price)) {
     $form_error = 'Price should be a number';
   } else {
-    $sql_query = "UPDATE item SET name=?, description=?, price=?, category=? WHERE id=$id";
+    //edit and update of items
+    $sql_query = "UPDATE item SET name=$name, description=$description, price=$price, category=$category WHERE id=$id";
 
     if ($stmt = mysqli_prepare($conn, $sql_query)) {
       mysqli_stmt_bind_param($stmt, "ssis", $itemName, $description, $price, $category);

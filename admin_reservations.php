@@ -6,7 +6,7 @@ if (!isset($_SESSION['admin'])) {
   // If adming is not loggedin redirect to the login page
   header("Location: http://localhost/Restaurant%20management%20system/admin_login.php");
 }
-
+//get all reservations
 $sql_query = 'SELECT * FROM reservation';
 $result = mysqli_query($conn, $sql_query);
 ?>
